@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --accent: #c10007;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #071a2d;
+}
+
+.section-divider {
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 72%, transparent);
+  box-shadow:
+    inset 0 -1px 0 color-mix(in srgb, var(--accent) 20%, transparent),
+    0 8px 24px -18px color-mix(in srgb, var(--accent) 75%, transparent),
+    0 2px 8px -6px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.section-top-divider {
+  border-top: 1px solid color-mix(in srgb, var(--accent) 72%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--accent) 20%, transparent),
+    0 -8px 24px -18px color-mix(in srgb, var(--accent) 75%, transparent),
+    0 -2px 8px -6px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.project-card {
+  border: 1px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 14%, transparent),
+    0 0 26px -12px color-mix(in srgb, var(--accent) 70%, transparent),
+    0 10px 28px -20px rgba(0, 0, 0, 0.8);
+}
+
+.nav-link {
+  position: relative;
+  transition: color 180ms ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.btn-primary,
+.btn-outline {
+  border-radius: 0.2rem;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.btn-primary {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: #de1f25;
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: #e2e8f0;
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.ring-glow {
+  border: 15px solid color-mix(in srgb, var(--accent) 74%, #ffffff);
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 28%, transparent) 0%, color-mix(in srgb, var(--accent) 12%, transparent) 48%, transparent 72%);
+  box-shadow: 0 0 58px color-mix(in srgb, var(--accent) 38%, transparent);
+}
+
+.hero-spotlight {
+  border-radius: 999px;
+  background: radial-gradient(circle at center, color-mix(in srgb, var(--accent) 45%, #ffffff) 0%, color-mix(in srgb, var(--accent) 14%, transparent) 35%, rgba(7, 26, 45, 0) 70%);
+  filter: blur(6px);
+  transform: scale(1.12);
+}
+
+.hero-portrait {
+  display: block;
+  margin-bottom: 0;
+}
+
+.intro-line {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.intro-line::before {
+  content: "";
+  display: inline-block;
+  width: 4.6rem;
+  height: 2px;
+  margin-right: 0.7rem;
+  background: var(--accent);
+  transform: translateY(0.08em);
+}
+
+.arrow-shape {
+  position: absolute;
+  z-index: 10;
+  color: color-mix(in srgb, var(--accent) 44%, transparent);
+  font-size: 3.2rem;
+  font-weight: 300;
+}
+
+.float-image {
+  animation: float 3.8s ease-in-out infinite;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 82%, transparent);
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.015);
+  padding: 0.95rem;
+  animation: fadeUp 560ms ease both;
+}
+
+.service-icon {
+  display: inline-flex;
+  min-width: 2rem;
+  justify-content: center;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.4rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: color-mix(in srgb, var(--accent) 36%, #ffffff);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.section-label::before {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  width: 2rem;
+  background: var(--accent);
+}
+
+.project-preview {
+  position: relative;
+  min-height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 45%),
+    linear-gradient(145deg, rgba(7, 26, 45, 0.65), rgba(255, 255, 255, 0.02));
+  overflow: hidden;
+}
+
+.project-preview::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.preview-title {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.78rem;
+  color: #e2e8f0;
+}
+
+.contact-field {
+  display: block;
+}
+
+.contact-field span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.contact-field input,
+.contact-field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: #f8fafc;
+  padding: 0.35rem 0;
+  outline: none;
+  transition: border-color 180ms ease;
+}
+
+.contact-field input:focus,
+.contact-field textarea:focus {
+  border-color: var(--accent);
+}
+
+.social-link {
+  display: inline-flex;
+  height: 1.8rem;
+  width: 1.8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 0.7rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.social-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.animate-fade-up {
+  animation: fadeUp 620ms ease both;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
