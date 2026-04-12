@@ -19,38 +19,38 @@ const stats = [
 
 const projects = [
   {
-    title: 'Battleship',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+    title: "EthioAgriConnect",
+    tags: ["React", "Tailwind CSS", "Node.js"],
     description:
-      'A tactical game implementation with smooth turn-by-turn interactions, responsive controls, and game state persistence.',
-    preview: 'Code Preview',
+      "EthioAgriConnect is a web application designed to bridge the gap between rural farmers and urban consumers. It creates a direct and reliable platform where farmers can showcase their fresh produce, and consumers can purchase directly — ensuring fair prices and reducing middlemen. The app promotes digital agriculture, empowers local farmers, and supports sustainable food distribution.",
+    // preview: 'Code Preview',
     image: projectImage1,
   },
   {
-    title: 'Movie Titles API',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Version control'],
+    title: "Movie Titles API",
+    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Version control"],
     description:
-      'A clean interface for browsing movie titles from an API with filtering, lightweight search, and structured data cards.',
-    preview: 'Poster Gallery',
+      "A clean interface for browsing movie titles from an API with filtering, lightweight search, and structured data cards.",
+    // preview: 'Poster Gallery',
     image: projectImage2,
   },
   {
-    title: 'Javascript Calculator',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+    title: "Javascript Calculator",
+    tags: ["HTML", "CSS", "JavaScript", "Node.js"],
     description:
-      'A keyboard-friendly calculator with expression evaluation, intuitive layout, and robust input handling.',
-    preview: 'Terminal Output',
+      "A keyboard-friendly calculator with expression evaluation, intuitive layout, and robust input handling.",
+    // preview: 'Terminal Output',
     image: projectImage3,
   },
   {
-    title: 'SaaS Landing Page',
-    tags: ['HTML', 'CSS'],
+    title: "SaaS Landing Page",
+    tags: ["React", "Firebase"],
     description:
-      'A conversion-focused landing page with sharp hierarchy, polished components, and smooth responsive behavior.',
-    preview: 'Landing Screenshot',
+      "The Netflix Clone is a high-performance web application. It replicates the core features of the popular streaming platform, allowing users to browse movies, view details, and enjoy a smooth interface with dynamic content loading. This project leverages Firebase Authentication for secure user access and Cloud Firestore for data management, demonstrating proficiency in API integration.",
+    // preview: 'Landing Screenshot',
     image: projectImage4,
   },
-]
+];
 
 const skillGroups = [
   {
