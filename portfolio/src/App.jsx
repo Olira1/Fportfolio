@@ -207,6 +207,18 @@ function App() {
   const [visibleSections, setVisibleSections] = useState(() => new Set(['home']))
   const sectionAnimationTimerRef = useRef(null)
   const previousActiveSectionRef = useRef('home')
+  const animatedByScrollRef = useRef(new Set(['home']))
+
+  const triggerSectionAnimation = (id) => {
+    if (sectionAnimationTimerRef.current) {
+      window.clearTimeout(sectionAnimationTimerRef.current)
+    }
+
+    setAnimatedSection(id)
+    sectionAnimationTimerRef.current = window.setTimeout(() => {
+      setAnimatedSection('')
+    }, 780)
+  }
 
   useEffect(() => {
     const sections = navItems
@@ -214,16 +226,6 @@ function App() {
       .filter(Boolean)
 
     if (sections.length === 0) return undefined
-
-    const triggerSectionAnimation = (id) => {
-      if (sectionAnimationTimerRef.current) {
-        window.clearTimeout(sectionAnimationTimerRef.current)
-      }
-      setAnimatedSection(id)
-      sectionAnimationTimerRef.current = window.setTimeout(() => {
-        setAnimatedSection('')
-      }, 780)
-    }
 
     const getScrollOffset = () => (window.innerWidth < 768 ? 112 : 132)
 
@@ -240,7 +242,6 @@ function App() {
       if (current !== previousActiveSectionRef.current) {
         previousActiveSectionRef.current = current
         setActiveSection(current)
-        triggerSectionAnimation(current)
       }
     }
 
@@ -257,6 +258,11 @@ function App() {
               next.add(entry.target.id)
               return next
             })
+
+            if (!animatedByScrollRef.current.has(entry.target.id)) {
+              animatedByScrollRef.current.add(entry.target.id)
+              triggerSectionAnimation(entry.target.id)
+            }
           }
         })
       },
@@ -287,15 +293,8 @@ function App() {
     setActiveSection(id)
     setMobileMenuOpen(false)
     previousActiveSectionRef.current = id
-
-    if (sectionAnimationTimerRef.current) {
-      window.clearTimeout(sectionAnimationTimerRef.current)
-    }
-
-    setAnimatedSection(id)
-    sectionAnimationTimerRef.current = window.setTimeout(() => {
-      setAnimatedSection('')
-    }, 780)
+    animatedByScrollRef.current.add(id)
+    triggerSectionAnimation(id)
   }
 
   const sectionClass = (baseClass, id) =>

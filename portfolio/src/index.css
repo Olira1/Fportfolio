@@ -3,9 +3,9 @@
 :root {
   font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --accent: #c10007;
-  --box-accent: #e64400;
-  --box-accent-rgb: 230, 68, 0;
-  --card-accent-rgb: 254, 154, 0;
+  --box-accent: #560f1d;
+  --box-accent-rgb: 86, 15, 29;
+  --card-accent-rgb: 86, 15, 29;
 }
 
 html {
@@ -495,7 +495,8 @@ body {
 }
 
 .section-in-view {
-  animation: sectionScrollIn 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-selected {
