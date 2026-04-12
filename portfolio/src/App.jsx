@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import profileImage from './assets/Image/olira.png'
+import projectImage1 from './assets/Image/project1.png'
+import projectImage2 from './assets/Image/project2.png'
+import projectImage3 from './assets/Image/project3.png'
+import projectImage4 from './assets/Image/project4.png'
 
 const services = [
   { icon: '</>', title: 'Website Development' },
@@ -20,6 +24,7 @@ const projects = [
     description:
       'A tactical game implementation with smooth turn-by-turn interactions, responsive controls, and game state persistence.',
     preview: 'Code Preview',
+    image: projectImage1,
   },
   {
     title: 'Movie Titles API',
@@ -27,6 +32,7 @@ const projects = [
     description:
       'A clean interface for browsing movie titles from an API with filtering, lightweight search, and structured data cards.',
     preview: 'Poster Gallery',
+    image: projectImage2,
   },
   {
     title: 'Javascript Calculator',
@@ -34,6 +40,7 @@ const projects = [
     description:
       'A keyboard-friendly calculator with expression evaluation, intuitive layout, and robust input handling.',
     preview: 'Terminal Output',
+    image: projectImage3,
   },
   {
     title: 'SaaS Landing Page',
@@ -41,6 +48,7 @@ const projects = [
     description:
       'A conversion-focused landing page with sharp hierarchy, polished components, and smooth responsive behavior.',
     preview: 'Landing Screenshot',
+    image: projectImage4,
   },
 ]
 
@@ -129,11 +137,76 @@ const navItems = [
   { id: 'contact', label: 'Contacts' },
 ]
 
+const homeLinks = [
+  { label: 'GitHub', icon: 'github', href: 'https://github.com' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://linkedin.com' },
+  { label: 'Telegram', icon: 'telegram', href: 'https://t.me' },
+  { label: 'X', icon: 'x', href: 'https://x.com' },
+  { label: 'Email', icon: 'gmail', href: 'mailto:youremail@example.com' },
+]
+
+function SocialSymbol({ icon }) {
+  if (icon === 'github') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="hero-icon-svg">
+        <path
+          fill="currentColor"
+          d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.21.68-.48v-1.69c-2.78.61-3.37-1.18-3.37-1.18a2.66 2.66 0 0 0-1.11-1.47c-.91-.62.07-.6.07-.6a2.1 2.1 0 0 1 1.53 1.03 2.15 2.15 0 0 0 2.93.84 2.14 2.14 0 0 1 .64-1.35c-2.22-.25-4.56-1.11-4.56-4.94a3.88 3.88 0 0 1 1.03-2.7 3.6 3.6 0 0 1 .1-2.66s.84-.27 2.75 1.03a9.48 9.48 0 0 1 5 0c1.9-1.3 2.74-1.03 2.74-1.03.38.85.42 1.81.11 2.69a3.87 3.87 0 0 1 1.02 2.67c0 3.84-2.34 4.68-4.57 4.93a2.4 2.4 0 0 1 .69 1.87v2.77c0 .26.18.58.69.48A10 10 0 0 0 12 2z"
+        />
+      </svg>
+    )
+  }
+
+  if (icon === 'linkedin') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="hero-icon-svg">
+        <path
+          fill="currentColor"
+          d="M4.98 3.5a2.5 2.5 0 1 0 0 5.001A2.5 2.5 0 0 0 4.98 3.5zM3 9h4v12H3V9zm7 0h3.82v1.7h.05c.53-1.01 1.82-2.07 3.75-2.07 4.01 0 4.75 2.64 4.75 6.08V21h-4v-5.52c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.93V21h-4V9z"
+        />
+      </svg>
+    )
+  }
+
+  if (icon === 'telegram') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="hero-icon-svg">
+        <path
+          fill="currentColor"
+          d="M21.94 4.66a1 1 0 0 0-1.07-.16L2.65 11.61a1 1 0 0 0 .07 1.87l4.66 1.55 1.72 5.12a1 1 0 0 0 1.7.36l2.61-2.69 4.24 3.1a1 1 0 0 0 1.57-.57l2.87-14.6a1 1 0 0 0-.15-.79zM9.2 14.35l8.65-6.31-6.95 7.25-.35 1.95-1.35-2.89z"
+        />
+      </svg>
+    )
+  }
+
+  if (icon === 'x') {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="hero-icon-svg">
+        <path
+          fill="currentColor"
+          d="M18.24 2h3.28l-7.16 8.19L22.8 22h-6.6l-5.17-6.76L5.1 22H1.8l7.66-8.75L1.2 2h6.77l4.67 6.17L18.24 2zm-1.16 18h1.82L6.98 3.9H5.02L17.08 20z"
+        />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="hero-icon-svg">
+      <path
+        fill="currentColor"
+        d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11zm2.2-.5L12 11.1 18.8 6H5.2zm13.8 2.26-6.4 4.8a1 1 0 0 1-1.2 0L5 8.26V17.5c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V8.26z"
+      />
+    </svg>
+  )
+}
+
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [animatedSection, setAnimatedSection] = useState('')
+  const [visibleSections, setVisibleSections] = useState(() => new Set(['home']))
   const sectionAnimationTimerRef = useRef(null)
+  const previousActiveSectionRef = useRef('home')
 
   useEffect(() => {
     const sections = navItems
@@ -142,25 +215,64 @@ function App() {
 
     if (sections.length === 0) return undefined
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+    const triggerSectionAnimation = (id) => {
+      if (sectionAnimationTimerRef.current) {
+        window.clearTimeout(sectionAnimationTimerRef.current)
+      }
+      setAnimatedSection(id)
+      sectionAnimationTimerRef.current = window.setTimeout(() => {
+        setAnimatedSection('')
+      }, 780)
+    }
 
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id)
+    const getScrollOffset = () => (window.innerWidth < 768 ? 112 : 132)
+
+    const detectActiveSection = () => {
+      const marker = window.scrollY + getScrollOffset()
+      let current = sections[0].id
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= marker) {
+          current = section.id
         }
+      })
+
+      if (current !== previousActiveSectionRef.current) {
+        previousActiveSectionRef.current = current
+        setActiveSection(current)
+        triggerSectionAnimation(current)
+      }
+    }
+
+    const onScroll = () => {
+      window.requestAnimationFrame(detectActiveSection)
+    }
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisibleSections((prev) => {
+              const next = new Set(prev)
+              next.add(entry.target.id)
+              return next
+            })
+          }
+        })
       },
-      {
-        root: null,
-        rootMargin: '-35% 0px -50% 0px',
-        threshold: [0.1, 0.25, 0.45, 0.65],
-      },
+      { threshold: 0.2, rootMargin: '0px 0px -12% 0px' },
     )
 
-    sections.forEach((section) => observer.observe(section))
-    return () => observer.disconnect()
+    sections.forEach((section) => revealObserver.observe(section))
+    detectActiveSection()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', detectActiveSection)
+
+    return () => {
+      revealObserver.disconnect()
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', detectActiveSection)
+    }
   }, [])
 
   useEffect(() => {
@@ -174,35 +286,38 @@ function App() {
   const handleNavClick = (id) => {
     setActiveSection(id)
     setMobileMenuOpen(false)
+    previousActiveSectionRef.current = id
 
     if (sectionAnimationTimerRef.current) {
       window.clearTimeout(sectionAnimationTimerRef.current)
     }
 
-    setAnimatedSection('')
-    window.requestAnimationFrame(() => {
-      setAnimatedSection(id)
-      sectionAnimationTimerRef.current = window.setTimeout(() => {
-        setAnimatedSection('')
-      }, 700)
-    })
+    setAnimatedSection(id)
+    sectionAnimationTimerRef.current = window.setTimeout(() => {
+      setAnimatedSection('')
+    }, 780)
   }
+
+  const sectionClass = (baseClass, id) =>
+    `${baseClass} section-scroll ${visibleSections.has(id) ? 'section-in-view' : ''} ${
+      animatedSection === id ? 'section-selected' : ''
+    }`
 
   return (
     <div className="min-h-screen bg-[#071a2d] text-slate-100 selection:bg-[#c10007] selection:text-white">
       <header className="sticky top-0 z-50 mx-auto w-full max-w-6xl bg-[#071a2d]/92 px-4 pt-5 backdrop-blur sm:px-6 md:px-10 md:pt-8">
-        <nav className="section-divider animate-fade-up flex items-center justify-between pb-6">
+        <nav className="section-divider-nav animate-fade-up flex items-center justify-between pb-6">
           <p className="text-sm font-semibold tracking-wide text-slate-300">
-            Jensen Omega
+            Olira Tesgera 
           </p>
           <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a
-                  className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  className={`nav-link ${activeSection === item.id ? "active" : ""}`}
                   href={`#${item.id}`}
                   onClick={() => handleNavClick(item.id)}
-                  aria-current={activeSection === item.id ? 'page' : undefined}
+                  aria-current={activeSection === item.id ? "page" : undefined}
                 >
                   {item.label}
                 </a>
@@ -211,7 +326,7 @@ function App() {
           </ul>
           <button
             type="button"
-            className={`menu-toggle md:hidden ${mobileMenuOpen ? 'open' : ''}`}
+            className={`menu-toggle md:hidden ${mobileMenuOpen ? "open" : ""}`}
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
@@ -222,12 +337,15 @@ function App() {
             <span />
           </button>
         </nav>
-        <div id="mobile-nav-panel" className={`mobile-nav md:hidden ${mobileMenuOpen ? 'open' : ''}`}>
+        <div
+          id="mobile-nav-panel"
+          className={`mobile-nav md:hidden ${mobileMenuOpen ? "open" : ""}`}
+        >
           <ul className="space-y-1 pb-3">
             {navItems.map((item) => (
               <li key={`mobile-${item.id}`}>
                 <a
-                  className={`mobile-nav-link ${activeSection === item.id ? 'active' : ''}`}
+                  className={`mobile-nav-link ${activeSection === item.id ? "active" : ""}`}
                   href={`#${item.id}`}
                   onClick={() => handleNavClick(item.id)}
                 >
@@ -242,20 +360,38 @@ function App() {
       <main className="mx-auto w-full max-w-6xl px-4 sm:px-6 md:px-10">
         <section
           id="home"
-          className={`section-divider grid items-end gap-8 pt-8 md:min-h-[62vh] md:grid-cols-2 md:gap-10 md:pt-14 ${animatedSection === 'home' ? 'section-selected' : ''}`}
+          className={sectionClass(
+            'section-divider grid items-end gap-8 pt-8 md:min-h-[62vh] md:grid-cols-2 md:gap-10 md:pt-14',
+            'home',
+          )}
         >
           <div className="animate-fade-up pb-8 md:pb-10">
             <h1 className="text-3xl leading-tight font-semibold text-white sm:text-4xl md:text-5xl">
               Hello<span className="text-[#ff6b47]">.</span>
               <br />
               <span className="intro-line text-2xl font-normal text-slate-200 md:text-3xl">
-                I&apos;m Jensen
+                I&apos;m Olira Tesgera
               </span>
               <br />
               <span className="mt-2 inline-block">
                 Full Stack Web Developer
               </span>
             </h1>
+            <div className="hero-contact-links mt-5">
+              {homeLinks.map((link) => (
+                <a
+                  key={link.label}
+                  className="hero-contact-link"
+                  href={link.href}
+                  target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
+                  aria-label={link.label}
+                  title={link.label}
+                >
+                  <SocialSymbol icon={link.icon} />
+                </a>
+              ))}
+            </div>
             <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
               <button className="btn-primary">Got a project?</button>
               <button className="btn-outline">My resume</button>
@@ -273,7 +409,7 @@ function App() {
             </span>
             <img
               src={profileImage}
-              alt="Portrait of Jensen Omega"
+              alt="Portrait of Olira Tesgera"
               className="hero-portrait relative z-10 mx-auto h-auto w-[85%] drop-shadow-[0_22px_30px_rgba(0,0,0,0.45)] sm:w-[82%] md:w-[90%]"
             />
           </div>
@@ -281,7 +417,7 @@ function App() {
 
         <section
           id="about"
-          className={`section-divider grid gap-12 py-16 md:grid-cols-[260px_1fr] ${animatedSection === 'about' ? 'section-selected' : ''}`}
+          className={sectionClass('section-divider grid gap-12 py-16 md:grid-cols-[260px_1fr]', 'about')}
         >
           <div className="animate-fade-up space-y-5">
             {services.map((service, index) => (
@@ -317,7 +453,10 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className={`py-14 md:py-16 ${animatedSection === 'projects' ? 'section-selected' : ''}`}>
+        <section
+          id="projects"
+          className={sectionClass('py-14 md:py-16', 'projects')}
+        >
           <div className="animate-fade-up mb-12">
             <p className="section-label">Projects</p>
           </div>
@@ -356,6 +495,11 @@ function App() {
                   className={`project-preview ${index % 2 === 1 ? "md:order-1" : ""}`}
                   aria-label={`${project.title} preview`}
                 >
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    className="h-full w-full object-cover object-top"
+                  />
                   <span className="preview-title">{project.preview}</span>
                 </div>
               </article>
@@ -363,7 +507,10 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className={`section-divider py-14 md:py-16 ${animatedSection === 'skills' ? 'section-selected' : ''}`}>
+        <section
+          id="skills"
+          className={sectionClass('section-divider py-14 md:py-16', 'skills')}
+        >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Skills</p>
           </div>
@@ -374,7 +521,9 @@ function App() {
                 className="feature-card animate-fade-up rounded-xl p-6"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <h3 className="text-2xl font-semibold text-white md:text-3xl">{group.title}</h3>
+                <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                  {group.title}
+                </h3>
                 <div className="mt-6 space-y-4">
                   {group.items.map((skill) => (
                     <div key={skill.name} className="skill-row">
@@ -383,7 +532,10 @@ function App() {
                         <span className="text-slate-300">{skill.level}%</span>
                       </div>
                       <div className="skill-track">
-                        <div className="skill-fill" style={{ width: `${skill.level}%` }} />
+                        <div
+                          className="skill-fill"
+                          style={{ width: `${skill.level}%` }}
+                        />
                       </div>
                     </div>
                   ))}
@@ -393,7 +545,10 @@ function App() {
           </div>
         </section>
 
-        <section id="services" className={`section-divider py-14 md:py-16 ${animatedSection === 'services' ? 'section-selected' : ''}`}>
+        <section
+          id="services"
+          className={sectionClass('section-divider py-14 md:py-16', 'services')}
+        >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Services</p>
           </div>
@@ -404,18 +559,29 @@ function App() {
                 className="feature-card animate-fade-up rounded-xl p-8 text-center"
                 style={{ animationDelay: `${index * 120}ms` }}
               >
-                <h3 className="text-2xl font-semibold text-white md:text-3xl">{service.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{service.description}</p>
+                <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  {service.description}
+                </p>
               </article>
             ))}
             <article className="feature-card animate-fade-up rounded-xl p-8 text-center md:col-span-2 md:mx-auto md:w-[50%]">
-              <h3 className="text-2xl font-semibold text-white md:text-3xl">{servicesShowcase[2].title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-300">{servicesShowcase[2].description}</p>
+              <h3 className="text-2xl font-semibold text-white md:text-3xl">
+                {servicesShowcase[2].title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-slate-300">
+                {servicesShowcase[2].description}
+              </p>
             </article>
           </div>
         </section>
 
-        <section id="certifications" className={`section-divider py-14 md:py-16 ${animatedSection === 'certifications' ? 'section-selected' : ''}`}>
+        <section
+          id="certifications"
+          className={sectionClass('section-divider py-14 md:py-16', 'certifications')}
+        >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Certifications</p>
           </div>
@@ -427,10 +593,14 @@ function App() {
                 style={{ animationDelay: `${index * 110}ms` }}
               >
                 <div className="cert-thumb mx-auto mb-5" />
-                <h3 className="text-xl leading-tight font-semibold text-white md:text-2xl">{cert.title}</h3>
+                <h3 className="text-xl leading-tight font-semibold text-white md:text-2xl">
+                  {cert.title}
+                </h3>
                 <p className="mt-2 text-slate-300">{cert.provider}</p>
                 <p className="mt-1 text-sm text-slate-400">{cert.date}</p>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{cert.summary}</p>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  {cert.summary}
+                </p>
               </article>
             ))}
           </div>
@@ -438,7 +608,7 @@ function App() {
 
         <section
           id="contact"
-          className={`section-top-divider grid gap-10 py-16 md:grid-cols-2 ${animatedSection === 'contact' ? 'section-selected' : ''}`}
+          className={sectionClass('section-top-divider grid gap-10 py-16 md:grid-cols-2', 'contact')}
         >
           <div className="animate-fade-up">
             <p className="section-label">Contacts</p>
@@ -468,7 +638,7 @@ function App() {
       </main>
 
       <footer className="section-top-divider bg-[#0a2238] py-8 text-center">
-        <p className="text-sm text-slate-300">Jensen Omega</p>
+        <p className="text-sm text-slate-300">Olira Tesgera </p>
         <p className="mt-1 text-xs text-slate-400">
           Designed with love, all rights reserved.
         </p>
