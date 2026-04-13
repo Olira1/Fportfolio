@@ -6,6 +6,8 @@ import projectImage2 from './assets/Image/project2.png'
 import projectImage3 from './assets/Image/project3.png'
 import projectImage4 from './assets/Image/project4.png'
 import exprienceImage from './assets/Image/exprience.png'
+import certificateImage1 from './assets/Image/certificate1.jpg'
+import certificateImage2 from './assets/Image/certificate2.png'
 
 const services = [
   { icon: '</>', title: 'Front end' },
@@ -25,6 +27,8 @@ const projects = [
     tags: ["React", "Tailwind CSS", "Node.js"],
     description:
       "EthioAgriConnect is a web application designed to bridge the gap between rural farmers and urban consumers. It creates a direct and reliable platform where farmers can showcase their fresh produce, and consumers can purchase directly — ensuring fair prices and reducing middlemen. The app promotes digital agriculture, empowers local farmers, and supports sustainable food distribution.",
+    githubUrl: "https://github.com/Olira1/agri-connect",
+    liveUrl: "https://agri-connect-chi-opal.vercel.app/",
     // preview: 'Code Preview',
     image: projectImage1,
   },
@@ -33,6 +37,8 @@ const projects = [
     tags: ["React", "Tailwind CSS", "FastAPI", "SQLite"],
     description:
       "Developed during a high-stakes hackathon, this automated security system regulates campus access through a multi-factor authentication process. The system integrates Face Recognition and ID Scanning to verify the identity of students, faculty, and staff. Built with a focus on university safety, the application cross-references biometric data in real-time, granting access only upon a successful match and effectively preventing unauthorized entry.",
+    githubUrl: "https://github.com/Olira1/securityy",
+    liveUrl: "https://securityy-8lpu.vercel.app/",
     // preview: 'Poster Gallery',
     image: projectImage2,
   },
@@ -41,6 +47,8 @@ const projects = [
     tags: ["React", "Tailwind Css", "Node.js", "Mysql"],
     description:
       "A comprehensive, production-ready school management ecosystem designed to digitize the entire academic lifecycle. This platform supports 8 distinct user roles (including Students, Parents, and Teachers) with specialized dashboards for each. I engineered a complex Grading & Analytics engine that automates the generation of student rosters, report cards, and official transcripts, streamlining administrative tasks for modern educational institutions.",
+    githubUrl: "https://github.com/Olira1/loginpager",
+    liveUrl: "https://loginpager.vercel.app/login",
     // preview: 'Terminal Output',
     image: projectImage3,
   },
@@ -49,6 +57,8 @@ const projects = [
     tags: ["React", "Firebase"],
     description:
       "The Netflix Clone is a high-performance web application. It replicates the core features of the popular streaming platform, allowing users to browse movies, view details, and enjoy a smooth interface with dynamic content loading. This project leverages Firebase Authentication for secure user access and Cloud Firestore for data management, demonstrating proficiency in API integration.",
+    githubUrl: "https://github.com/Olira1/Movie-project",
+    liveUrl: "https://olira1.github.io/Movie-project/",
     // preview: 'Landing Screenshot',
     image: projectImage4,
   },
@@ -63,16 +73,16 @@ const skillGroups = [
       { name: 'CSS', level: 90 },
       { name: 'JavaScript', level: 85 },
       { name: 'Tailwind CSS', level: 80 },
-      { name: 'Next.js', level: 75 },
+      // { name: 'Next.js', level: 75 },
     ],
   },
   {
     title: 'Backend',
     items: [
-      { name: 'Django', level: 85 },
+      // { name: 'Django', level: 85 },
       { name: 'Node.js', level: 80 },
       { name: 'Firebase', level: 75 },
-      { name: 'MongoDB', level: 80 },
+      // { name: 'MongoDB', level: 80 },
       { name: 'SQL', level: 70 },
     ],
   },
@@ -96,7 +106,7 @@ const skillGroups = [
 const servicesShowcase = [
   {
     title: 'Frontend Development',
-    description: 'Modern, responsive interfaces using React, Next.js, Tailwind, and more.',
+    description: 'Modern, responsive interfaces using React, Tailwind, and more.',
   },
   {
     title: 'Backend/API Development',
@@ -104,30 +114,28 @@ const servicesShowcase = [
   },
   {
     title: 'DevOps & Cloud',
-    description: 'Deployments, CI/CD pipelines, and cloud automation with AWS, Docker, and Vercel.',
+    description: 'Deployments, and cloud automation with AWS, Docker, and Vercel.',
   },
 ]
 
 const certifications = [
   {
-    title: 'Introduction to Frontend Development',
-    provider: 'Meta',
-    date: 'April 6, 2024',
-    summary: 'Certified in building responsive frontends with React, JavaScript, HTML, and CSS.',
+    title: "Cursor Hackathon Winner - Ambo 2026",
+    provider: "Cursor",
+    date: "january 3, 2026",
+    summary:
+      "Awarded 1st Place for outstanding innovation, teamwork, and technical excellence in building high-impact software solutions during the Cursor Hackathon.",
+    image: certificateImage1,
   },
   {
-    title: 'Programming Fundamentals',
-    provider: 'Udacity',
-    date: 'February 1, 2025',
-    summary: 'Certified in core programming concepts, problem solving, and software fundamentals.',
+    title: "Programming Fundamentals",
+    provider: "Udacity",
+    date: "December 26, 2024",
+    summary:
+      "Certified in core programming concepts, problem solving, and software fundamentals.",
+    image: certificateImage2,
   },
-  {
-    title: 'Manager of AI Workshop',
-    provider: 'Elvis Melia',
-    date: 'September 20, 2025',
-    summary: 'Certified for successful completion of a full-day AI workshop and project exercises.',
-  },
-]
+];
 
 const teachingExperience = {
   title: "Teaching What I've Learned",
@@ -147,12 +155,12 @@ const navItems = [
 ]
 
 const homeLinks = [
-  { label: 'GitHub', icon: 'github', href: 'https://github.com' },
-  { label: 'LinkedIn', icon: 'linkedin', href: 'https://linkedin.com' },
-  { label: 'Telegram', icon: 'telegram', href: 'https://t.me' },
-  { label: 'X', icon: 'x', href: 'https://x.com' },
-  { label: 'Email', icon: 'gmail', href: 'mailto:youremail@example.com' },
-]
+  { label: "GitHub", icon: "github", href: "https://github.com/Olira1" },
+  { label: "LinkedIn", icon: "linkedin", href: "https://linkedin.com" },
+  { label: "Telegram", icon: "telegram", href: "https://web.telegram.org/a/" },
+  { label: "X", icon: "x", href: "https://x.com/home" },
+  { label: "Email", icon: "gmail", href: "https://mail.google.com/mail/u/3/" },
+];
 
 function SocialSymbol({ icon }) {
   if (icon === 'github') {
@@ -210,11 +218,15 @@ function SocialSymbol({ icon }) {
 }
 
 function App() {
+  const formspreeEndpoint = "https://formspree.io/f/maqayqqd";
   const [showIntroScreen, setShowIntroScreen] = useState(true)
   const [introScreenClosing, setIntroScreenClosing] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [animatedSection, setAnimatedSection] = useState('')
+  const [contactSubmitting, setContactSubmitting] = useState(false)
+  const [contactFeedback, setContactFeedback] = useState('')
+  const [contactError, setContactError] = useState(false)
   const [visibleSections, setVisibleSections] = useState(() => new Set(['home']))
   const sectionAnimationTimerRef = useRef(null)
   const previousActiveSectionRef = useRef('home')
@@ -346,6 +358,45 @@ function App() {
   const handleInteractiveCardLeave = (event) => {
     const card = event.currentTarget
     card.style.transform = ''
+  }
+
+  const handleContactSubmit = async (event) => {
+    event.preventDefault()
+    setContactError(false)
+
+    if (formspreeEndpoint.includes('yourFormId')) {
+      setContactError(true)
+      setContactFeedback('Set your real Formspree form ID in App.jsx first.')
+      return
+    }
+
+    const form = event.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      setContactSubmitting(true)
+      setContactFeedback('')
+
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error('Unable to send your message right now.')
+      }
+
+      form.reset()
+      setContactFeedback('Message sent successfully. I will get back to you soon.')
+    } catch (error) {
+      setContactError(true)
+      setContactFeedback(error.message || 'Something went wrong. Please try again.')
+    } finally {
+      setContactSubmitting(false)
+    }
   }
 
   if (showIntroScreen) {
@@ -587,8 +638,22 @@ function App() {
                     {project.description}
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
-                    <button className="btn-primary">View GitHub</button>
-                    <button className="btn-outline">View project</button>
+                    <a
+                      className="btn-primary"
+                      href={project.githubUrl}
+                      target={project.githubUrl === "#" ? undefined : "_blank"}
+                      rel={project.githubUrl === "#" ? undefined : "noreferrer"}
+                    >
+                      View GitHub
+                    </a>
+                    <a
+                      className="btn-outline"
+                      href={project.liveUrl}
+                      target={project.liveUrl === "#" ? undefined : "_blank"}
+                      rel={project.liveUrl === "#" ? undefined : "noreferrer"}
+                    >
+                      View project
+                    </a>
                   </div>
                 </div>
 
@@ -697,7 +762,7 @@ function App() {
           <div className="animate-fade-up mb-10">
             <p className="section-label">Certifications</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {certifications.map((cert, index) => (
               <article
                 key={cert.title}
@@ -706,7 +771,11 @@ function App() {
                 onMouseMove={handleInteractiveCardMove}
                 onMouseLeave={handleInteractiveCardLeave}
               >
-                <div className="cert-thumb mx-auto mb-5" />
+                <img
+                  src={cert.image}
+                  alt={`${cert.title} certificate`}
+                  className="mx-auto mb-5 h-80 w-full max-w-[22rem] rounded-md border border-white/10 object-cover"
+                />
                 <h3 className="text-xl leading-tight font-semibold text-white md:text-2xl">
                   {cert.title}
                 </h3>
@@ -734,22 +803,45 @@ function App() {
               <br />
               Let&apos;s talk!
             </h2>
-            <button className="btn-primary mt-8">Submit</button>
+            <button
+              type="submit"
+              form="contact-form"
+              className="btn-primary mt-8 disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={contactSubmitting}
+            >
+              {contactSubmitting ? "Sending..." : "Submit"}
+            </button>
+            {contactFeedback ? (
+              <p
+                className={`mt-4 max-w-xs text-sm ${contactError ? "text-red-300" : "text-emerald-300"}`}
+              >
+                {contactFeedback}
+              </p>
+            ) : null}
           </div>
 
-          <form className="animate-fade-up delay-200 space-y-6">
+          <form
+            id="contact-form"
+            className="animate-fade-up delay-200 space-y-6"
+            onSubmit={handleContactSubmit}
+          >
             <label className="contact-field">
               <span>Name</span>
-              <input type="text" name="name" />
+              <input type="text" name="name" required />
             </label>
             <label className="contact-field">
               <span>Email</span>
-              <input type="email" name="email" />
+              <input type="email" name="email" required />
             </label>
             <label className="contact-field">
               <span>Message</span>
-              <textarea name="message" rows="4" />
+              <textarea name="message" rows="4" required />
             </label>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New portfolio contact message"
+            />
           </form>
         </section>
       </main>
@@ -762,7 +854,7 @@ function App() {
         <div className="mt-4 flex items-center justify-center gap-3">
           <a
             className="social-link"
-            href="https://x.com"
+            href="https://x.com/home"
             target="_blank"
             rel="noreferrer"
           >
@@ -770,7 +862,7 @@ function App() {
           </a>
           <a
             className="social-link"
-            href="https://github.com"
+            href="https://github.com/Olira1"
             target="_blank"
             rel="noreferrer"
           >
