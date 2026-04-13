@@ -219,6 +219,8 @@ function SocialSymbol({ icon }) {
 
 function App() {
   const formspreeEndpoint = "https://formspree.io/f/maqayqqd";
+  const resumeLink =
+    "https://drive.google.com/file/d/1ERjxR0eGs-OZVaoqDuRsVhBuiQZIQX90/view?usp=sharing";
   const [showIntroScreen, setShowIntroScreen] = useState(true)
   const [introScreenClosing, setIntroScreenClosing] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
@@ -512,8 +514,21 @@ function App() {
               ))}
             </div>
             <div className="mt-7 flex flex-wrap items-center gap-3 md:mt-8 md:gap-4">
-              <button className="btn-primary">Got a project?</button>
-              <button className="btn-outline">My resume</button>
+              <a
+                className="btn-primary"
+                href="#contact"
+                onClick={() => handleNavClick("contact")}
+              >
+                Got a project?
+              </a>
+              <a
+                className="btn-outline"
+                href={resumeLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                My resume
+              </a>
             </div>
           </div>
 
