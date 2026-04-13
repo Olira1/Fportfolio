@@ -210,6 +210,8 @@ function SocialSymbol({ icon }) {
 }
 
 function App() {
+  const [showIntroScreen, setShowIntroScreen] = useState(true)
+  const [introScreenClosing, setIntroScreenClosing] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [animatedSection, setAnimatedSection] = useState('')
@@ -230,6 +232,23 @@ function App() {
   }
 
   useEffect(() => {
+    const fadeTimer = window.setTimeout(() => {
+      setIntroScreenClosing(true)
+    }, 1800)
+
+    const hideTimer = window.setTimeout(() => {
+      setShowIntroScreen(false)
+    }, 2350)
+
+    return () => {
+      window.clearTimeout(fadeTimer)
+      window.clearTimeout(hideTimer)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (showIntroScreen) return undefined
+
     const sections = navItems
       .map((item) => document.getElementById(item.id))
       .filter(Boolean)
@@ -288,7 +307,7 @@ function App() {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', detectActiveSection)
     }
-  }, [])
+  }, [showIntroScreen])
 
   useEffect(() => {
     return () => {
@@ -327,6 +346,17 @@ function App() {
   const handleInteractiveCardLeave = (event) => {
     const card = event.currentTarget
     card.style.transform = ''
+  }
+
+  if (showIntroScreen) {
+    return (
+      <div
+        className={`intro-screen ${introScreenClosing ? 'intro-screen-hide' : ''}`}
+      >
+        <span className="intro-spinner" aria-hidden="true" />
+        <p className="intro-text">Welcome to my portfolio.</p>
+      </div>
+    )
   }
 
   return (
