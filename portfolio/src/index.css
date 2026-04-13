@@ -91,6 +91,19 @@ body {
   pointer-events: none;
 }
 
+.interactive-motion-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 170ms ease, box-shadow 170ms ease;
+}
+
+.interactive-motion-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(var(--card-accent-rgb), 0.45),
+    0 0 34px -8px rgba(var(--card-accent-rgb), 0.76),
+    0 16px 26px -18px rgba(0, 0, 0, 0.9);
+}
+
 .skill-track {
   height: 0.72rem;
   width: 100%;
@@ -165,7 +178,6 @@ body {
 }
 
 .menu-toggle {
-  display: inline-flex;
   width: 1.75rem;
   height: 1.75rem;
   flex-direction: column;

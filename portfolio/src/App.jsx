@@ -1,20 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 import profileImage from './assets/Image/olira.png'
+import logoImage from './assets/Image/logo.png'
 import projectImage1 from './assets/Image/project1.png'
 import projectImage2 from './assets/Image/project2.png'
 import projectImage3 from './assets/Image/project3.png'
 import projectImage4 from './assets/Image/project4.png'
+import exprienceImage from './assets/Image/exprience.png'
 
 const services = [
-  { icon: '</>', title: 'Website Development' },
-  { icon: '[]', title: 'App Development' },
+  { icon: '</>', title: 'Front end' },
+  { icon: '[]', title: 'Back end' },
   { icon: '<#>', title: 'Website Hosting' },
 ]
 
 const stats = [
-  { value: '120+', label: 'Completed Projects' },
-  { value: '95%', label: 'Client satisfaction' },
-  { value: '10+', label: 'Years of experience' },
+  // { value: '120+', label: 'Completed Projects' },
+  // { value: '95%', label: 'Client satisfaction' },
+  // { value: '10+', label: 'Years of experience' },
 ]
 
 const projects = [
@@ -27,23 +29,23 @@ const projects = [
     image: projectImage1,
   },
   {
-    title: "Movie Titles API",
-    tags: ["HTML", "CSS", "JavaScript", "Node.js", "Version control"],
+    title: "Campus_Gate_Security_System",
+    tags: ["React", "Tailwind CSS", "FastAPI", "SQLite"],
     description:
-      "A clean interface for browsing movie titles from an API with filtering, lightweight search, and structured data cards.",
+      "Developed during a high-stakes hackathon, this automated security system regulates campus access through a multi-factor authentication process. The system integrates Face Recognition and ID Scanning to verify the identity of students, faculty, and staff. Built with a focus on university safety, the application cross-references biometric data in real-time, granting access only upon a successful match and effectively preventing unauthorized entry.",
     // preview: 'Poster Gallery',
     image: projectImage2,
   },
   {
-    title: "Javascript Calculator",
-    tags: ["HTML", "CSS", "JavaScript", "Node.js"],
+    title: "Secondary School Portal",
+    tags: ["React", "Tailwind Css", "Node.js", "Mysql"],
     description:
-      "A keyboard-friendly calculator with expression evaluation, intuitive layout, and robust input handling.",
+      "A comprehensive, production-ready school management ecosystem designed to digitize the entire academic lifecycle. This platform supports 8 distinct user roles (including Students, Parents, and Teachers) with specialized dashboards for each. I engineered a complex Grading & Analytics engine that automates the generation of student rosters, report cards, and official transcripts, streamlining administrative tasks for modern educational institutions.",
     // preview: 'Terminal Output',
     image: projectImage3,
   },
   {
-    title: "SaaS Landing Page",
+    title: "Netflix Clone",
     tags: ["React", "Firebase"],
     description:
       "The Netflix Clone is a high-performance web application. It replicates the core features of the popular streaming platform, allowing users to browse movies, view details, and enjoy a smooth interface with dynamic content loading. This project leverages Firebase Authentication for secure user access and Cloud Firestore for data management, demonstrating proficiency in API integration.",
@@ -126,6 +128,13 @@ const certifications = [
     summary: 'Certified for successful completion of a full-day AI workshop and project exercises.',
   },
 ]
+
+const teachingExperience = {
+  title: "Teaching What I've Learned",
+  description:
+    "As someone who is passionate about knowledge sharing, I participate in technical sessions for students behind me at my university. I simplify complex web development concepts and guide students through practical projects, creating a collaborative learning environment and reinforcing my technical expertise.",
+  image: exprienceImage,
+};
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -302,14 +311,40 @@ function App() {
       animatedSection === id ? 'section-selected' : ''
     }`
 
+  const handleInteractiveCardMove = (event) => {
+    const card = event.currentTarget
+    const { left, top, width, height } = card.getBoundingClientRect()
+    const x = (event.clientX - left) / width
+    const y = (event.clientY - top) / height
+    const rotateY = (x - 0.5) * 12
+    const rotateX = (0.5 - y) * 12
+    const translateX = (x - 0.5) * 6
+    const translateY = (y - 0.5) * 6
+
+    card.style.transform = `perspective(950px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translate3d(${translateX.toFixed(1)}px, ${translateY.toFixed(1)}px, 0)`
+  }
+
+  const handleInteractiveCardLeave = (event) => {
+    const card = event.currentTarget
+    card.style.transform = ''
+  }
+
   return (
     <div className="min-h-screen bg-[#071a2d] text-slate-100 selection:bg-[#c10007] selection:text-white">
       <header className="sticky top-0 z-50 mx-auto w-full max-w-6xl bg-[#071a2d]/92 px-4 pt-5 backdrop-blur sm:px-6 md:px-10 md:pt-8">
         <nav className="section-divider-nav animate-fade-up flex items-center justify-between pb-6">
-          <p className="text-sm font-semibold tracking-wide text-slate-300">
-            Olira Tesgera 
-          </p>
-          <ul className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
+          <a
+            href="#home"
+            onClick={() => handleNavClick("home")}
+            aria-label="Go to home"
+          >
+            <img
+              src={logoImage}
+              alt="Olira Tesgera logo"
+              className="h-10 w-auto object-contain"
+            />
+          </a>
+          <ul className="hidden items-center gap-8 text-sm font-semibold text-slate-300 md:flex">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a
@@ -325,7 +360,7 @@ function App() {
           </ul>
           <button
             type="button"
-            className={`menu-toggle md:hidden ${mobileMenuOpen ? "open" : ""}`}
+            className={`menu-toggle inline-flex md:hidden ${mobileMenuOpen ? "open" : ""}`}
             onClick={() => setMobileMenuOpen((prev) => !prev)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
@@ -360,8 +395,8 @@ function App() {
         <section
           id="home"
           className={sectionClass(
-            'section-divider grid items-end gap-8 pt-8 md:min-h-[62vh] md:grid-cols-2 md:gap-10 md:pt-14',
-            'home',
+            "section-divider grid items-end gap-8 pt-8 md:min-h-[62vh] md:grid-cols-2 md:gap-10 md:pt-14",
+            "home",
           )}
         >
           <div className="animate-fade-up pb-8 md:pb-10">
@@ -382,8 +417,12 @@ function App() {
                   key={link.label}
                   className="hero-contact-link"
                   href={link.href}
-                  target={link.href.startsWith('mailto:') ? undefined : '_blank'}
-                  rel={link.href.startsWith('mailto:') ? undefined : 'noreferrer'}
+                  target={
+                    link.href.startsWith("mailto:") ? undefined : "_blank"
+                  }
+                  rel={
+                    link.href.startsWith("mailto:") ? undefined : "noreferrer"
+                  }
                   aria-label={link.label}
                   title={link.label}
                 >
@@ -416,7 +455,10 @@ function App() {
 
         <section
           id="about"
-          className={sectionClass('section-divider grid gap-12 py-16 md:grid-cols-[260px_1fr]', 'about')}
+          className={sectionClass(
+            "section-divider grid gap-12 py-16 md:grid-cols-[260px_1fr]",
+            "about",
+          )}
         >
           <div className="animate-fade-up space-y-5">
             {services.map((service, index) => (
@@ -436,10 +478,14 @@ function App() {
           <div className="animate-fade-up delay-200">
             <p className="section-label">About me</p>
             <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-300 md:text-base">
-              I started my software journey from photography. Through that, I
-              learned to love creation and building from scratch. Since then,
-              this has led me to software development as I fulfill my love for
-              learning and building things.
+              I am a Full-Stack Developer with a strong passion for the
+              Frontend, driven by the challenge of turning complex logic into
+              seamless, pixel-perfect user experiences. My primary focus is on
+              building intuitive, responsive interfaces for production-ready
+              systems, from complex grading logic in school portals to biometric
+              security solutions developed during high-pressure hackathons. My
+              goal is always to design engaging applications that deliver clear,
+              real-world value.
             </p>
             <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
               {stats.map((stat) => (
@@ -449,12 +495,36 @@ function App() {
                 </div>
               ))}
             </div>
+            <article className="feature-card animate-fade-up mt-10 grid gap-5 rounded-xl p-6 md:grid-cols-[260px_1fr] md:items-center md:gap-6 md:p-8">
+              <div className="project-preview min-h-[190px]">
+                {teachingExperience.image ? (
+                  <img
+                    src={teachingExperience.image}
+                    alt="Teaching session"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full min-h-[190px] items-center justify-center px-5 text-center text-xs text-slate-300">
+                    Add your image by setting{" "}
+                    <code>teachingExperience.image</code> in App.jsx
+                  </div>
+                )}
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white md:text-2xl">
+                  {teachingExperience.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300 md:text-base">
+                  {teachingExperience.description}
+                </p>
+              </div>
+            </article>
           </div>
         </section>
 
         <section
           id="projects"
-          className={sectionClass('py-14 md:py-16', 'projects')}
+          className={sectionClass("py-14 md:py-16", "projects")}
         >
           <div className="animate-fade-up mb-12">
             <p className="section-label">Projects</p>
@@ -464,8 +534,10 @@ function App() {
             {projects.map((project, index) => (
               <article
                 key={project.title}
-                className="project-card animate-fade-up grid gap-6 rounded-xl bg-white/[0.02] p-5 md:grid-cols-2 md:items-center"
+                className="project-card interactive-motion-card animate-fade-up grid gap-6 rounded-xl bg-white/[0.02] p-5 md:grid-cols-2 md:items-center"
                 style={{ animationDelay: `${index * 120}ms` }}
+                onMouseMove={handleInteractiveCardMove}
+                onMouseLeave={handleInteractiveCardLeave}
               >
                 <div className={index % 2 === 1 ? "md:order-2" : ""}>
                   <h3 className="text-2xl font-semibold text-white">
@@ -508,7 +580,7 @@ function App() {
 
         <section
           id="skills"
-          className={sectionClass('section-divider py-14 md:py-16', 'skills')}
+          className={sectionClass("section-divider py-14 md:py-16", "skills")}
         >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Skills</p>
@@ -517,8 +589,10 @@ function App() {
             {skillGroups.map((group, index) => (
               <article
                 key={group.title}
-                className="feature-card animate-fade-up rounded-xl p-6"
+                className="feature-card interactive-motion-card animate-fade-up rounded-xl p-6"
                 style={{ animationDelay: `${index * 100}ms` }}
+                onMouseMove={handleInteractiveCardMove}
+                onMouseLeave={handleInteractiveCardLeave}
               >
                 <h3 className="text-2xl font-semibold text-white md:text-3xl">
                   {group.title}
@@ -546,7 +620,7 @@ function App() {
 
         <section
           id="services"
-          className={sectionClass('section-divider py-14 md:py-16', 'services')}
+          className={sectionClass("section-divider py-14 md:py-16", "services")}
         >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Services</p>
@@ -555,8 +629,10 @@ function App() {
             {servicesShowcase.slice(0, 2).map((service, index) => (
               <article
                 key={service.title}
-                className="feature-card animate-fade-up rounded-xl p-8 text-center"
+                className="feature-card interactive-motion-card animate-fade-up rounded-xl p-8 text-center"
                 style={{ animationDelay: `${index * 120}ms` }}
+                onMouseMove={handleInteractiveCardMove}
+                onMouseLeave={handleInteractiveCardLeave}
               >
                 <h3 className="text-2xl font-semibold text-white md:text-3xl">
                   {service.title}
@@ -566,7 +642,11 @@ function App() {
                 </p>
               </article>
             ))}
-            <article className="feature-card animate-fade-up rounded-xl p-8 text-center md:col-span-2 md:mx-auto md:w-[50%]">
+            <article
+              className="feature-card interactive-motion-card animate-fade-up rounded-xl p-8 text-center md:col-span-2 md:mx-auto md:w-[50%]"
+              onMouseMove={handleInteractiveCardMove}
+              onMouseLeave={handleInteractiveCardLeave}
+            >
               <h3 className="text-2xl font-semibold text-white md:text-3xl">
                 {servicesShowcase[2].title}
               </h3>
@@ -579,7 +659,10 @@ function App() {
 
         <section
           id="certifications"
-          className={sectionClass('section-divider py-14 md:py-16', 'certifications')}
+          className={sectionClass(
+            "section-divider py-14 md:py-16",
+            "certifications",
+          )}
         >
           <div className="animate-fade-up mb-10">
             <p className="section-label">Certifications</p>
@@ -588,8 +671,10 @@ function App() {
             {certifications.map((cert, index) => (
               <article
                 key={cert.title}
-                className="feature-card animate-fade-up rounded-xl p-6 text-center"
+                className="feature-card interactive-motion-card animate-fade-up rounded-xl p-6 text-center"
                 style={{ animationDelay: `${index * 110}ms` }}
+                onMouseMove={handleInteractiveCardMove}
+                onMouseLeave={handleInteractiveCardLeave}
               >
                 <div className="cert-thumb mx-auto mb-5" />
                 <h3 className="text-xl leading-tight font-semibold text-white md:text-2xl">
@@ -607,7 +692,10 @@ function App() {
 
         <section
           id="contact"
-          className={sectionClass('section-top-divider grid gap-10 py-16 md:grid-cols-2', 'contact')}
+          className={sectionClass(
+            "section-top-divider grid gap-10 py-16 md:grid-cols-2",
+            "contact",
+          )}
         >
           <div className="animate-fade-up">
             <p className="section-label">Contacts</p>
